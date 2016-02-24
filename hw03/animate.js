@@ -23,8 +23,8 @@ var xcor = 100;
 var ycor = 400;
 var xdir = 1;
 var ydir = 1;
-var logo = new Image();
-logo.src = "logo_dvd.jpg";
+//var logo = new Image();
+//logo.src = "logo_dvd.jpg";
 
 function drawDot() {
 	counter +=1;
@@ -55,6 +55,28 @@ function drawDot() {
   requestID = window.requestAnimationFrame(drawDot);
 };
 
+
+var dvdLogo = function(){
+    //ctx.clearRect(0,0,538,538);
+    //ctx.strokRect(0,0,538,538);
+
+	if (xcor >= (538-70) || xcor <= 0){
+	        xdir = xdir * -1;
+	    }
+	    if (y >= (538-50) || y <= 0){
+	        ydir = ydir * -1;
+	    }
+
+	    xcor+=xdir;
+	    ycor+=ydir;
+
+	    var logo = new Image();
+	    logo.src = "logo_dvd.jpg";
+
+	    ctx.drawImage(logo,xcor,ycor,70,50);
+	    requestId = window.requestAnimationFrame(dvdLogo);
+};
+
 function stop() {
   ctx.clearRect(0,0,c.width,c.height); //clear canvas
   growing = true;
@@ -63,23 +85,7 @@ function stop() {
   window.cancelAnimationFrame(requestID);
 };
 
-var dvdLogo = function(){
-    ctx.clearRect(0,0,538,538);
-    ctx.strokRect(0,0,538,538);
-
-    ctx.drawImage(logo,xcor,ycor,75,50);
-    xcor = xcor + (2 * xdir);
-    ycor = ycor + (2 * ydir);
-    if (xcor == (538-70) || xcor == 0){
-        xdir = xdir * -1;
-    }
-    if (y == (538-50) || y == 0){
-        ydir = ydir * -1;
-    }
-    requestId = window.requestAnimationFrame(dvd);
-}
-
 startDraw.addEventListener("click", drawDot);
-endDraw.addEventListener("click", stop);
 dvd.addEventListener("click", dvdLogo);
+endDraw.addEventListener("click", stop);
 
