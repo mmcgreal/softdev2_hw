@@ -1,8 +1,8 @@
 /*
 Mary McGreal
 SoftDev pd 3
-HW02- Animation
-2016-02-23
+HW05-The Best Defense Against Tyranny...
+2016-03-18
 */
 var data = [4, 8, 15, 16, 23, 42];
   d3.select(".chart")
