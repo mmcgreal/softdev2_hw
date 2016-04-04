@@ -5,7 +5,7 @@ def inc(x):
 
 f = inc
 
-#print f(10)
+print f(10)
 
 
 def h(x):
@@ -16,7 +16,7 @@ print h(2)
 print h(1)(3)
 print h(2)(5)
 
-#b=h(1)
+b=h(1) #closure
 
 def f(x):
     def g(y):
