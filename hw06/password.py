@@ -49,9 +49,8 @@ def password_strength(p):
         nums = [x for x in p if x in digits]
         chars = [x for x in p if x in special_chars]
         print "This password has been verified."
-        length = len(password)
-  #define strength here!!!
-
+        length = len(p)
+        strength = len(ucs)+len(lcs)+len(nums)+len(chars)*2 #work on this
         if strength < 5:
             print "Password strength: WEAK\n"
             print "Rating: " + str(strength)
@@ -59,7 +58,7 @@ def password_strength(p):
             print "Password strength: GOOD\n"
             print "Rating: " + str(strength)
         else:
-            if len(char) == 0:
+            if len(chars) == 0:
                     strength = 8
             print "Password strength: STRONG\n"
             if strength > 10:
@@ -73,7 +72,7 @@ def password_strength(p):
 
 
 password_authentication(p)
-#password_strength(p)
+password_strength(p)
 
 
 
